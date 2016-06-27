@@ -1,27 +1,17 @@
-var Main = require('./App/Components/Main');
+var Main = require('./app/components/main');
 
-import React, {
-  Component,
-} from 'react';
-
+import React, { Component } from 'react';
 import {
   AppRegistry,
   NavigatorIOS,
   StyleSheet
 } from 'react-native';
 
-var styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: '#111111'
-  },
-});
-
 class BobbyNannier extends React.Component{
   render() {
     return (
       <NavigatorIOS
-      style={styles.container}
+        style={styles.container}
         initialRoute={{
           title: 'Github NoteTaker',
           component: Main
@@ -29,5 +19,12 @@ class BobbyNannier extends React.Component{
     );
   }
 };
+
+var styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: '#111111'
+  },
+});
 
 AppRegistry.registerComponent('BobbyNannier', () => BobbyNannier);
