@@ -1,20 +1,12 @@
-var React = require('react-native');
+import React, {
+  Component,
+} from 'react';
 
-var {
+import {
   View,
   Text,
   StyleSheet
-} = React;
-
-class Main extends React.Component{
-  render() {
-    return(
-      <View style={styles.mainContainer}>
-      <Text> Testing the Router </Text>
-      </View>
-      )
-  }
-};
+} from 'react-native';
 
 var styles = StyleSheet.create({
   mainContainer: {
@@ -59,5 +51,19 @@ var styles = StyleSheet.create({
     justifyContent: 'center'
   },
 });
+
+class Main extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+    return(
+      <View style={styles.mainContainer}>
+        <Text> Testing the Router </Text>
+      </View>
+      )
+  }
+};
 
 module.exports = Main;
