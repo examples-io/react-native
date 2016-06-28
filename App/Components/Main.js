@@ -34,7 +34,7 @@ class Main extends React.Component{
     });
     console.log('SUMBIT', this.state.username);
     // Fetch data from github
-    api.getBio(this.state.username)
+    Api.getBio(this.state.username)
       .then((res) => {
         if(res.message === 'Not Found'){
           this.setState({
