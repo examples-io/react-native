@@ -32,7 +32,6 @@ class Main extends React.Component{
     this.setState({
       isLoading: true
     });
-    console.log('SUMBIT', this.state.username);
     // Fetch data from github
     Api.getBio(this.state.username)
       .then((res) => {
@@ -58,6 +57,20 @@ class Main extends React.Component{
   }
 
   render() {
+    var showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    );
+
+    var showActivityIndicator = (
+      this.state.isLoading
+      ? <ActivityIndicatorIOS
+          animating={this.state.isLoading}
+          color="#111"
+          size="large">
+        </ActivityIndicatorIOS>
+      : <View></View>
+    );
+
     return(
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a Github User </Text>
@@ -71,8 +84,10 @@ class Main extends React.Component{
           underlayColor="white">
           <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
+        {showActivityIndicator}
+        {showErr}
       </View>
-      )
+    )
   }
 };
 
